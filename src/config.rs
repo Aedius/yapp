@@ -54,7 +54,7 @@ pub fn load_config_from_file() -> Option<Replacements> {
 /// Loads configuration from provided text.
 pub fn load_config(content: &str) -> Option<Replacements> {
   let mut replacements = vec![];
-  let lines: Vec<String> = content.lines().map(|s| s.trim().to_string()).filter(|s| !s.is_empty()).collect();
+  let lines: Vec<String> = content.lines().map(|s| s.to_string()).filter(|s| !s.is_empty()).collect();
   for chunk in lines.chunks(2) {
     replacements.push(Replacement::new(trim_quotation_marks(&chunk[0]), trim_quotation_marks(&chunk[1])));
   }
